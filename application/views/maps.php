@@ -22,10 +22,10 @@
 				dataType: 'json',
  				success: function(go){
  				var newdata =go;
- 					console.log(newdata);
-
- 				for (var i=0;i< newdata.routes[0].legs[0].steps.length;i++){ 
- 				$("#directions").append(newdata.routes[0].legs[0].steps[i].html_instructions + "<br>");
+ 					console.log(newdata);	
+ 				$("#directions").append("<h2>Directions From:" + newdata.routes[0].legs[0].start_address + " To: " + newdata.routes[0].legs[0].end_address+"</h2>");
+ 				for (var i=1;i< newdata.routes[0].legs[0].steps.length+1;i++){ 
+ 				$("#directions").append("<h3>"+i +  " . " + newdata.routes[0].legs[0].steps[i].html_instructions + "</h3><br>");
  				}
  				
 			}
@@ -47,7 +47,7 @@
  <body>
 
  	<div class="container">
-
+ 		<h2>Get Directions</h2>
  		<form class="form-horizontal" method ="">
   <div class="form-group">
     <div class="col-sm-5">
